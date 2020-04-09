@@ -13,3 +13,11 @@ semantic-release-dry-run:
 
 package-lock.json: package.json
 	npm install
+
+.PHONY: install-npm-check-updates
+install-npm-check-updates:
+	npm install npm-check-updates
+.PHONY: update-dependencies
+update-dependencies: install-npm-check-updates
+	ncu -u
+	npm install
